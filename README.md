@@ -94,6 +94,10 @@ Ensure you have Docker and Docker Compose installed on your machine.
 
    # Check Logstash health
    curl -f http://localhost:9600/_node/pipelines || echo "Health check failed"
+   
+### Medium Link
+For a detailed explanation and additional insights, you can read the full blog post on Medium: [Dockerizing the ELK Stack: A Comprehensive Guide to Automating ElasticSearch Setup](https://kuldeepyadavky.medium.com/dockerizing-the-elk-stack-a-comprehensive-guide-to-automating-elasticsearch-setup-de32da40d162)
+
 
 ### Configuration
    Update environment variables in the .env file to configure passwords, cluster name, and other settings.
