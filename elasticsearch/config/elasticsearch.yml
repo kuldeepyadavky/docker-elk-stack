@@ -1,0 +1,34 @@
+## Default Elasticsearch configuration from Elasticsearch base image.
+## https://github.com/elastic/elasticsearch/blob/main/distribution/docker/src/docker/config/elasticsearch.yml
+
+cluster.name: ${CLUSTER_NAME}
+# This setting defines the name of your Elasticsearch cluster. 
+# By using ${CLUSTER_NAME}, you can dynamically set the cluster name 
+# via environment variables. This is useful when deploying across 
+# different environments (development, staging, production) 
+# where the cluster name might vary.
+
+network.host: 0.0.0.0
+# This setting configures Elasticsearch to bind to all network interfaces,
+# making it accessible from outside the Docker container. This is 
+# important if you want to access Elasticsearch from other 
+# services or containers. For production environments, 
+# consider restricting access to trusted IP addresses or using 
+# network security groups.
+
+## X-Pack settings
+## see https://www.elastic.co/guide/en/elasticsearch/reference/current/security-settings.html
+# X-Pack is a plugin that provides additional security, 
+# monitoring, alerting, and reporting capabilities for Elasticsearch.
+
+xpack.license.self_generated.type: ${LICENSE}
+# This setting specifies the type of license to be used for X-Pack. 
+# By using ${LICENSE}, you can dynamically configure the license type 
+# (e.g., basic, trial, platinum) based on your needs or environment.
+
+xpack.security.enabled: ${XPACK_SECURITY_ENABLED}
+# This setting enables or disables X-Pack security features. 
+# It is set to ${XPACK_SECURITY_ENABLED} so that you can easily 
+# toggle security on or off via environment variables. Enabling security 
+# is crucial for production environments to protect data and ensure 
+# that only authorized users have access.

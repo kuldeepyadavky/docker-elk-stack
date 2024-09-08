@@ -1,0 +1,45 @@
+## JVM configuration
+
+################################################################
+## IMPORTANT: JVM heap size
+################################################################
+##
+## You should always set the min and max JVM heap
+## size to the same value. For example, to set
+## the heap to 1 GB, set:
+##
+-Xms1g 
+-Xmx1g
+##
+## See https://www.elastic.co/guide/en/logstash/current/performance-troubleshooting.html#_jvm
+## for more information
+
+################################################################
+## Expert settings
+################################################################
+##
+## All settings below this section are considered
+## expert settings. Do NOT change them unless you
+## understand what you are doing.
+##
+################################################################
+
+
+## Locale
+-Djava.awt.headless=true
+
+## Basic JVM settings
+-Dfile.encoding=UTF-8
+-Djna.nosys=true
+-Djna.boot.library.path=
+-Djruby.compile.invokedynamic=false
+-Dlog4j.shutdownHookEnabled=false
+-Dlog4j2.disable.jmx=true
+-Dlog4j.skipJansi=true
+
+## Memory
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath=/usr/share/logstash/heapdump.hprof
+
+## Ensure JMX is not started
+-Dcom.sun.management.jmxremote=false

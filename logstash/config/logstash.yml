@@ -1,0 +1,15 @@
+## Default Logstash configuration from Logstash base image.
+## https://github.com/elastic/logstash/blob/main/docker/data/logstash/config/logstash-full.yml
+#
+http.host: 0.0.0.0
+# Configures Logstash to listen on all network interfaces,
+# making it accessible from outside the Docker container.
+# This is important for connecting Logstash with external
+# data sources or other components within the ELK stack.
+
+
+node.name: logstash
+# Sets the name of the Logstash node.
+# This name is mainly for internal reference
+# and does not affect the functionality but
+# is useful for identifying Logstash instances in a cluster.
